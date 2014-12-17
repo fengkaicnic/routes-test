@@ -27,7 +27,7 @@ class MyRouter(object):
         print 'MyRouter is invoked'
         return self._router
 
-    def _dispatch(req):
+    def _dispatch(self, req):
         print 'RoutesMiddleware is invoked, calling the dispatch back'
         match_dict = req.environ['wsgiorg.routing_args'][1]
         if not match_dict:
