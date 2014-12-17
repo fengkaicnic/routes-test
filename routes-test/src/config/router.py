@@ -2,7 +2,6 @@ from routes import Mapper
 import webob.dec
 import webob.exc
 import routes.middleware
-import testtools
 from src.controller.controller import TestController
 from src.controller.controller import Application
 
