@@ -7,7 +7,7 @@ def main():
     httpd = make_server('', 9999, MyRouter())
     print 'serving on port 9999'
     
-    httpd.server_forever()
+    httpd.serve_forever()
 
 
 if __name__ == '__main__':
