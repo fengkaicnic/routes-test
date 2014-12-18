@@ -19,6 +19,11 @@ class MyRouter(object):
                             action='getlist',
                             conditions={'method':['GET']})
         
+        self.mapper.connect(route_name, '/test1',
+                            controller=my_application,
+                            action='getkey',
+                            conditions={'method':['GET']})
+        
         self._router = routes.middleware.RoutesMiddleware(self._dispatch,
                                                           self.mapper)
     @webob.dec.wsgify(RequestClass=webob.Request)  
