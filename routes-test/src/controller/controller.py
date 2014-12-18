@@ -1,10 +1,10 @@
 
 class TestController(object):
-    def getlist(self, body):
+    def getlist(self, body, mykey):
         print 'getlist is invoked'
         return 'getlist(), %s' % body
     
-    def getkey(self, mykey):
+    def getkey(self, mykey, body):
         print 'getkey is invoked'
         return 'getkey() %s' % mykey
 
