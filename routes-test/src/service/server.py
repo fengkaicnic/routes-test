@@ -1,5 +1,5 @@
 from wsgiref.simple_server import make_server
-from src.controller.controller import TestController
+from src.controller.controller import TestAction
 from src.config.router import MyRouter
 import os
 
