@@ -28,7 +28,8 @@ class Application(object):
             pass
         
         action = action_args.pop('action', None)
-        action_args['params'] = querys
+        action_args['mykey'] = querys
+        action_args['body'] = querys
         controller_method = getattr(self._controller, action)
         result = controller_method(**action_args)
         
