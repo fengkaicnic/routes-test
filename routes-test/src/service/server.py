@@ -4,7 +4,7 @@ from src.config.router import MyRouter
 import os
 
 def app(environ, start_response):
-    start_response('200OK', [('Content-Type', 'text/plain')])
+    start_response('200 OK', [('Content-Type', 'text/plain')])
     yield 'Hello world!\n'
 
 def main():
