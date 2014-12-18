@@ -1,12 +1,12 @@
 
 class TestController(object):
-    def getlist(self, req, body):
+    def getlist(self, body):
         print 'getlist is invoked'
         return 'getlist(), %s' % body
     
-    def getkey(self, req):
+    def getkey(self, mykey):
         print 'getkey is invoked'
-        return 'getkey()'
+        return 'getkey() %s' % mykey
 
 class Application(object):
     
@@ -16,6 +16,7 @@ class Application(object):
     def __call__(self, environ, start_response):
         print 'Application is invoked'
         action_args = environ['wsgiorg.routing_args'][1].copy()
+        querys = environ['QUERY_STRING']
         try:
             del action_args['controller']
         except KeyError:
@@ -27,6 +28,7 @@ class Application(object):
             pass
         
         action = action_args.pop('action', None)
+        action_args['params'] = querys
         controller_method = getattr(self._controller, action)
         result = controller_method(**action_args)
         
