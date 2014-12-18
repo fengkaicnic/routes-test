@@ -2,11 +2,11 @@
 class TestAction(object):
     def getlist(self, body, mykey):
         print 'getlist is invoked'
-        return 'getlist(), %s' % body
+        return 'getlist(), %s \n' % body
     
     def getkey(self, mykey, body):
         print 'getkey is invoked'
-        return 'getkey() %s' % mykey
+        return 'getkey() %s \n' % mykey
 
 class Application(object):
     
