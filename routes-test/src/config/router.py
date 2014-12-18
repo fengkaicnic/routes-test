@@ -21,12 +21,14 @@ class MyRouter(object):
         
         self._router = routes.middleware.RoutesMiddleware(self._dispatch,
                                                           self.mapper)
-        
+    @webob.dec.wsgify(RequestClass=webob.Request)  
     def __call__(self, req):
         
         print 'MyRouter is invoked'
         return self._router
 
+    @staticmethod
+    @webob.dec.wsfigy(RequestClass=webob.Request)
     def _dispatch(self, req):
         print 'RoutesMiddleware is invoked, calling the dispatch back'
         match_dict = req.environ['wsgiorg.routing_args'][1]
