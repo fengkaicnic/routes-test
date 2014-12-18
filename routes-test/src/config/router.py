@@ -2,7 +2,7 @@ from routes import Mapper
 import webob.dec
 import webob.exc
 import routes.middleware
-from src.controller.controller import TestController
+from src.controller.controller import TestAction 
 from src.controller.controller import Application
 
 class MyRouter(object):
@@ -11,7 +11,7 @@ class MyRouter(object):
         route_name = 'test_route'
         route_path = '/test'
         
-        my_application = Application(TestController())
+        my_application = Application(TestAction())
         
         self.mapper = Mapper()
         self.mapper.connect(route_name, route_path,

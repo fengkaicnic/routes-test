@@ -1,5 +1,5 @@
 
-class TestController(object):
+class TestAction(object):
     def getlist(self, body, mykey):
         print 'getlist is invoked'
         return 'getlist(), %s' % body
