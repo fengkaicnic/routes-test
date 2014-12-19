@@ -16,6 +16,11 @@ class MyResourceRouter(object):
         self.mapper = Mapper()
         self.mapper.resource(route_name, route_path, controller=my_application)
         
+        self.mapper.connect(route_name, 'getkey',
+                            controller=my_application,
+                            action='getkey',
+                            conditions={'method':['GET']})
+        
         self._router = routes.middleware.RoutesMiddleware(self._dispatch, self.mapper)
         
     @webob.dec.wsgify(RequestClass=webob.Request)  
