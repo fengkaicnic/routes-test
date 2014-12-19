@@ -9,7 +9,7 @@ def app(environ, start_response):
 
 def main():
     httpd = make_server('', 9997, MyResourceRouter())
-    print 'serving on port 9999'
+    print 'serving on port 9997'
     
     httpd.serve_forever()
 

@@ -16,7 +16,7 @@ class MyResourceRouter(object):
         self.mapper = Mapper()
         self.mapper.resource(route_name, route_path, controller=my_application)
         
-        self.route = routes.middleware.RoutesMiddleware(self._dispatch, self.mapper)
+        self._router = routes.middleware.RoutesMiddleware(self._dispatch, self.mapper)
         
     @webob.dec.wsgify(RequestClass=webob.Request)  
     def __call__(self, req):
