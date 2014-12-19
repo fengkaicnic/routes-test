@@ -16,7 +16,7 @@ class MyResourceRouter(object):
         self.mapper = Mapper()
         self.mapper.resource(route_name, route_path, controller=my_application)
         
-        self.mapper.connect(route_name, 'getkey',
+        self.mapper.connect('resconnct', '/getkey',
                             controller=my_application,
                             action='getkey',
                             conditions={'method':['GET']})
