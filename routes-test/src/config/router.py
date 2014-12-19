@@ -5,6 +5,17 @@ import routes.middleware
 from src.controller.controller import TestAction 
 from src.controller.controller import Application
 
+class MyResourceRouter(object):
+    
+    def __init__(self):
+        route_name = 'resource'
+        route_path = 'resor'
+        
+        my_application = Application(TestAction())
+        
+        self.mapper = Mapper()
+        self.mapper.resource()
+
 class MyRouter(object):
     
     def __init__(self):

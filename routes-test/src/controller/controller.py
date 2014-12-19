@@ -7,6 +7,18 @@ class TestAction(object):
     def getkey(self, mykey, body):
         print 'getkey is invoked'
         return 'getkey() %s \n' % mykey
+    
+    def index(self, mykey, body):
+        return 'index() %s \n' % body
+
+    def create(self, mykey, body):
+        return 'create() %s \n' % body
+    
+    def update(self, mykey, body):
+        return 'update() %s \n' % body
+    
+    def delete(self, mykey, body):
+        return 'delete() %s \n' % body
 
 class Application(object):
     
