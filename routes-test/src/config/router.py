@@ -14,7 +14,25 @@ class MyResourceRouter(object):
         my_application = Application(TestAction())
         
         self.mapper = Mapper()
-        self.mapper.resource()
+        self.mapper.resource(route_name, route_path, controller=my_application)
+        
+        self.route = routes.middleware.RoutesMiddleware(self._dispatch, self.mapper)
+        
+    @webob.dec.wsgify(RequestClass=webob.Request)  
+    def __call__(self, req):
+        
+        print 'MyRouter is invoked'
+        return self._router
+
+    @staticmethod
+    @webob.dec.wsgify(RequestClass=webob.Request)
+    def _dispatch(req):
+        print 'RoutesMiddleware is invoked, calling the dispatch back'
+        match_dict = req.environ['wsgiorg.routing_args'][1]
+        if not match_dict:
+            return webob.exc.HTTPNotFound()
+        app = match_dict['controller']
+        return app
 
 class MyRouter(object):
     
