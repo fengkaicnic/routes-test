@@ -26,6 +26,7 @@ class Tone(object):
         print a**2
         return 'have lhxctfws'
     
+    @decorator(235)
     def __call__(self, a, b):
         print 'this is call'
         return a**2
