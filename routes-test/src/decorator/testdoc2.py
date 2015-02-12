@@ -1,7 +1,7 @@
 class decorator(object):
     
     abc = 35
-    def __init__(self, bcd, abc=None):
+    def __init__(self, abc=None):
         print 'decorator'
         self.abc = abc
 #        print fn1
@@ -19,9 +19,19 @@ class decorator(object):
         print 'in get', obj, owner
         
 
-@decorator(123)
-def quare(a, b):
-    print a**2
-    return 'have lhxctfws'
+class Tone(object):
+
+    @decorator(123)
+    def quare(self, a, b):
+        print a**2
+        return 'have lhxctfws'
     
-print (quare(2, 1))   
+    def __call__(self, a, b):
+        print 'this is call'
+        return a**2
+    
+one = Tone()  
+print '2222222222222222'
+print one.quare(1, 2)
+print '3333333333333333'
+print one(2, 1)
