@@ -64,6 +64,8 @@ class MyRouter(object):
     @webob.dec.wsgify(RequestClass=webob.Request)  
     def __call__(self, req):
         
+        self.count += 1
+        print self.count
         print 'MyRouter is invoked'
         return self._router
 
