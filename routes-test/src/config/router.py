@@ -44,6 +44,7 @@ class MyRouter(object):
     def __init__(self):
         route_name = 'test_route'
         route_path = '/test'
+        self.count = 1
         
         my_application = Application(TestAction())
         

@@ -9,6 +9,7 @@ class decorator(object):
         
     def __call__(self, *args):
         self.fn = args[0]
+        print 'this the abc', self.abc
         def serve(*args):
             print args
             return self.fn(*args)
